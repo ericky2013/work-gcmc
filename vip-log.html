@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="css/base_style.css"/>
 	<link rel="stylesheet" href="css/refineslide.css">
 	<link rel="stylesheet" href="css/styles.css" />
-	<link rel="stylesheet" href="css/vip-photo.css" />
+	<link rel="stylesheet" href="css/vip-log.css" />
 	<!--[if lt IE 9]>
 		<script src="js/html5Shiv.js"></script>
 		<script src="js/respond.min.js"></script>
@@ -151,166 +151,139 @@
 				<a href="#" class="vip-friend-activities"><span class="vip-icons"></span> 好友动态 <span class="badge">2</span></a>
 				<a href="#" class="vip-friend-favor"><span class="vip-icons"></span> 我的收藏 </a>
 				<a href="#" class="vip-friend-subject"><span class="vip-icons"></span> 项目组 </a>
-				<a href="#" class="vip-friend-daily"><span class="vip-icons"></span> 日志 </a>
-				<a href="#" class="vip-friend-album vip-current-item"><span class="vip-icons"></span> 相册 </a>
+				<a href="#" class="vip-friend-daily vip-current-item"><span class="vip-icons"></span> 日志 </a>
+				<a href="#" class="vip-friend-album"><span class="vip-icons"></span> 相册 </a>
 			</div>
 
 		</div>  <!-- end left -->
 		<!-- right -->
 		<div class="vip-right clearfix">
-			<!-- 信息发表输入框 -->
-			<div class="vip-input-info">
-				<form action="#" meathod="post">
-					<textarea name="text-info"></textarea>
-					<a href="#" class="insert-face"></a>
-					<a href="#" class="insert-img"></a>
-					<a href="#" class="insert-accessory"></a>
-					<button type="submit" class="btn btn-default">发表</button>
-				</form>
-			</div>
 
 			<!-- 主内容 相册 -->
 			<div class="main-contents">
-				<!-- 我的相册 好友照片 最新照片 选项卡 -->
-				<ul class="nav nav-tabs">
-				  <li class="nav-tabs-first active"><a href="#home" data-toggle="tab">我的相册</a></li>
-				  <li><a href="#profile" data-toggle="tab">好友照片</a></li>
-				  <li class="nav-tabs-last"><a href="#messages" data-toggle="tab">最新照片</a></li>
+				<!-- 我的日志 生活记录 好友日志 记事本 tabs -->
+				<ul class="nav nav-tabs clearfix">
+				  <li class="nav-tabs-first active"><a href="#my_logs" data-toggle="tab">我的日志</a></li>
+				  <li><a href="#life_records" data-toggle="tab">生活记录</a></li>
+				  <li><a href="#fri_logs" data-toggle="tab">好友日志</a></li>
+				  <li class="nav-tabs-last"><a href="#note" data-toggle="tab">记事本</a></li>
+				  <li>
+				  		<a href="#">回收站</a>
+				  		<span> | </span>  
+				  		<a href="#">草稿箱</a> 
+				  		
+				  </li>
 				</ul>
+
+				<!-- 写日志按钮 按列表排序 -->
+				<div class="write-log">
+					<button type="button" class="btn btn-default">写日志</button>
+					<div class="btn-group float_right">
+						<button class="btn btn-default dropdown-toggle dis_style" data-toggle="dropdown">
+							<a href="#">发表时间</a> <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">列表展示</a></li>
+							<li><a href="#">缩略图展示</a></li>
+						</ul>
+					</div>
+					<span type="button" class="btn btn-default float_right">切换到列表</span>
+				</div>
+
 				<!-- Tab panes contents-->
 				<div class="tab-content">
-				  <div class="tab-pane active" id="home"> 
-						<!-- 照片上传 创建相册 展示设置 按钮  -->
-						<div class="photo-buttons">
-							<form action="#" meathod="post" enctype="multipart/form-data" >
-								<a href="#" type="button" class="btn btn-default">上传照片</a>
-								<input id="photo_upload" name="photo" type="file" multiple="true" >
-								<div id="queue" class="dis_none"></div><!--这个div，用来显示文件上传队列,通过queueID关联-->
-							</form>
-							<button class="btn btn-default">创建相册</button>
-							<div class="btn-group">
-								<button class="btn btn-default dropdown-toggle dis_style" data-toggle="dropdown">
-									<a href="#">展示设置</a> <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">列表展示</a></li>
-									<li><a href="#">缩略图展示</a></li>
-								</ul>
+				  <div class="tab-pane active" id="my_logs"> 
+						<!-- 日志摘要显示block -->
+						<div class="dis-log-block">
+							<!-- 日志标题 -->
+							<h1><a href="#">《天净沙·秋思》—— 马致远</a></h1>
+							<!-- 摘要内容 block -->
+							<div class="article-digest">
+								<p>
+									枯藤老树昏鸦，<br>
+									小桥流水人家,
+								</p>
+								<p>古道西风瘦马。</p>
+								<p>夕阳西下，断肠人在天涯。</p>
 							</div>
+							<!-- 日志 元信息 时间 评论... -->
+							<p class="digest-metas">
+								<span>2013-13-13</span>
+								<span><a href="#">查看全文</a></span>
+								<span>阅读(12345)</span>
+								<span>评论(123123)</span>
+								<span><a href="#">编辑</a></span>
+								<span><a href="#">更多<span class="caret"></span></a></span>
+							</p>
 						</div>
 
-						<!-- 相册显示区域 -->
-						<div class="dis-pic-area clearfix">
-							<!-- 相册block -->
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-1.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>默认相册</h1>
+						<div class="dis-log-block">
+							<!-- 日志标题 -->
+							<h1><a href="#">网络文学的粉丝经济时代还未来临</a></h1>
+							<!-- 摘要内容 block -->
+							<div class="article-digest">
 								<p>
-									<span>100 张</span>
-									<span class="float_right dis_none">仅自己可见</span>
+									上周，有报道称百度即将完成对完美世界旗下的纵横<br>
+									中文网的收购，价格在三到四亿元人民币。而恰恰在一个
+									月前，人民网也宣布以2.48亿的价格收购古羌科技（旗下拥有看书网）69.25%的股权。时间再向前推一个月，
+									腾讯高调进军移动阅读的鼓声还没有消散。巨头纷纷入局，2013年的网络文学市场似乎越发的热闹。
 								</p>
 							</div>
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-2.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>默认相册</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right">仅自己可见</span>
-								</p>
-							</div>
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-3.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>新建相册新建相册</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right dis_none">仅自己可见</span>
-								</p>
-							</div>
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-4.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>新建相册2</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right dis_none">仅自己可见</span>
-								</p>
-							</div>
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-default.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>新建相册3</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right dis_none">仅自己可见</span>
-								</p>
-							</div>	
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-default.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>新建相册3</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right dis_none">仅自己可见</span>
-								</p>
-							</div>	
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-default.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>新建相册3</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right">仅自己可见</span>
-								</p>
-							</div>	
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-default.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>新建相册3</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right ">仅自己可见</span>
-								</p>
-							</div>		
-							<div class="dis-pic-block">
-								<div class="block-border"></div>
-								<div>
-									<a href="#"><img src="images/vip-photos/photo-example-default.png" alt=""></a>
-								</div>
-								<div class="clearfix"></div>
-								<h1>新建相册3</h1>
-								<p>
-									<span>100 张</span>
-									<span class="float_right dis_none">仅自己可见</span>
-								</p>
-							</div>																											
+							<!-- 日志 元信息 时间 评论... -->
+							<p class="digest-metas">
+								<span>2017-13-13</span>
+								<span><a href="#">查看全文</a></span>
+								<span>阅读(12)</span>
+								<span>评论(7)</span>
+								<span><a href="#">编辑</a></span>
+								<span><a href="#">更多<span class="caret"></span></a></span>
+							</p>
 						</div>
+
+						<div class="dis-log-block">
+							<!-- 日志标题 -->
+							<h1><a href="#">掉队的金立，跟风小米模式如何不再慢半拍？</a></h1>
+							<!-- 摘要内容 block -->
+							<div class="article-digest">
+								<p>
+									小米过去3年的成功，已经证明了互联网模式的可行性，吸引了不少模仿者扎推学小米。但是，时至今日却没有
+									一个真正像样的模仿者出现。作为屡次在智能手机的转型中慢半拍的金立，能成长为像样的小米学徒吗？
+								</p>
+							</div>
+							<!-- 日志 元信息 时间 评论... -->
+							<p class="digest-metas">
+								<span>2017-13-13</span>
+								<span><a href="#">查看全文</a></span>
+								<span>阅读(12)</span>
+								<span>评论(7)</span>
+								<span><a href="#">编辑</a></span>
+								<span><a href="#">更多<span class="caret"></span></a></span>
+							</p>
+						</div>
+
+						<div class="dis-log-block">
+							<!-- 日志标题 -->
+							<h1><a href="#">用人话解释比特币原理</a></h1>
+							<!-- 摘要内容 block -->
+							<div class="article-digest">
+								<img src="images/vip-photos/vip-log-img-1.png" alt="">
+								<p>
+									究竟是什么让一枚虚拟货币的汇率在3年间翻了25000倍，是什么力量让央行副行长“感兴趣”但“不承认”，
+									抛开投机与商业欺诈比特币作为一种工具究竟有没有价值？欢迎收看今天的走进“伪”科学——用普通人也能
+									理解的话解释比特币。
+								</p>
+							</div>
+							<!-- 日志 元信息 时间 评论... -->
+							<p class="digest-metas">
+								<span>2017-13-13</span>
+								<span><a href="#">查看全文</a></span>
+								<span>阅读(12)</span>
+								<span>评论(7)</span>
+								<span><a href="#">编辑</a></span>
+								<span><a href="#">更多<span class="caret"></span></a></span>
+							</p>
+						</div>						
+
 
 						<!-- 翻页按钮 -->
 			   		<div class="nav-page clearfix">
@@ -330,7 +303,7 @@
 				  </div>
 
 
-				  <div class="tab-pane" id="profile"> 日志
+				  <div class="tab-pane" id="life_records"> 生活记录
 						<!-- 翻页按钮 -->
 			   		<div class="nav-page clearfix">
 			   			<div class="nav-page-num">
@@ -349,7 +322,7 @@
 				  </div>
 
 
-				  <div class="tab-pane" id="messages"> 相册
+				  <div class="tab-pane" id="fri_logs"> 好友日志
 						<!-- 翻页按钮 -->
 			   		<div class="nav-page clearfix">
 			   			<div class="nav-page-num">
@@ -366,6 +339,25 @@
 			   			</div>
 			   		</div>	 <!-- end 翻页按钮 -->							
 				  </div>
+
+				  <div class="tab-pane" id="note"> 记事本
+						<!-- 翻页按钮 -->
+			   		<div class="nav-page clearfix">
+			   			<div class="nav-page-num">
+			   				<ul>
+			   					<li><a class="next-button page-button btn btn-default" type="button">下一页 <span class="caret"></span></a></li>
+			   					<li><a href="#" type="button" class="btn btn-default">155</a></li>
+			   					<li><a href="#" type="button" class="btn btn-default">14</a></li>
+			   					<li><a href="#">...</a></li>
+			   					<li><a href="#" type="button" class="btn btn-default">13</a></li>
+			   					<li><a href="#" type="button" class="btn btn-default">10</a></li>
+			   					<li><a href="#" class="current-page btn btn-default">1</a></li>
+			   					<li><a class="prev-button page-button btn btn-default" type="button" disabled="disabled"><span class="caret"></span> 上一页</a></li>
+			   				</ul>
+			   			</div>
+			   		</div>	 <!-- end 翻页按钮 -->							
+				  </div>
+
 				</div> <!-- end Tab panes contents-->
 			</div>  <!-- end 主内容 相册 日志 ... -->
 		</div>  <!-- end right -->

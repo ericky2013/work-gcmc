@@ -117,7 +117,7 @@
     width: 742px;
     background: #f1f1f1;
     float: right;
-    padding: 5px 20px 60px 20px;
+    padding: 20px 20px 60px 20px;
     position: relative;
 }
 
@@ -174,8 +174,8 @@
     margin-top: 13px;
     /*width: 702px;*/
 	/*这里设置hidden 其中ul可不设置宽度是为了隐藏第一个li a的左边框*/
-    overflow-x: hidden;
-    background: transparent;
+    overflow: hidden;
+    background: #e7e7e7;
 }
 
 .nav-tabs .nav-tabs-first{
@@ -186,14 +186,15 @@
 .nav-tabs .nav-tabs-last{
     border-radius: 0px 3px 3px 0px;
     
-    border-right: 1px solid #ccc;
+    border-right: 0px solid #ccc;
 }
 .nav-tabs > li {
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     /*margin-top: 10px;*/
     border-top: 0px solid #ccc;
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+    position: relative;
 }
 
 .nav-tabs > li.active {
@@ -206,6 +207,7 @@
 
     /*这里的-1px是为了隐藏左边的边框结合上面的overflowhidden */
     margin-left: -1px; 
+    background: #f1f1f1;
 }
 .nav-tabs > li.active a{
     
@@ -214,13 +216,14 @@
 
 .nav-tabs > li > a{
     color: #4b4b4b;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 13px;
     height: 32px;
     margin-right: 0px;
     border-radius: 0px 0px 0 0;
     padding: 8px 24px;
     background: #e7e7e7;
+    font-weight: bold;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
 	background: transparent;
@@ -243,106 +246,155 @@
 .nav-tabs .nav-tabs-last .nav-item-icons{
     background: url("../images/icons/vip-icons-1.png") no-repeat -119px 0px;
 }
+.nav-tabs .nav-tabs-last + li{
+    background: #e7e7e7;
 
-/*照片上传 创建相册 展示设置 按钮*/
-.photo-buttons{
-
-}
-.photo-buttons form{
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-}
-.photo-buttons form #photo_upload{
-    filter: alpha(opacity=0);
-         -khtml-opacity: .0;
-           -moz-opacity: .0;
-                opacity: .0;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    height: 100%;
-    cursor: pointer;
-}
-.photo-buttons form a.btn{
-    color: #fff;  
-    padding-left: 32px;
-    padding-right: 17px;
-    font-size: 14px;
-    line-height: 18px;
-    background: url("../images/icons/photo-icon-upload-pic.png") no-repeat 7px 7px;
-    background-color: #7b8c9e;  border-color: #cccccc;
-}
-.photo-buttons button{
-    padding: 0;
-    margin: 0 31px;
-    color: #375fa2;  
-    background-color: transparent;  
-    border-color: transparent;
-    border-radius: 0px;
-    font-size: 12px;
-    border: 0px solid transparent;
-}
-.photo-buttons button:hover{
-   color: #375fa2;
-   background-color: transparent;
-   border-color: transparent; 
-}
-.photo-buttons .btn-group a{
-	color: #375fa2;
-}
-.photo-buttons .btn-group span.caret{
-	border-top: 4px solid #375fa2;
-}
-
-/*<!-- 照片显示区域 -->*/
-.dis-pic-area{
-    padding-bottom: 90px;
-
-}
- /*照片block*/
-.dis-pic-area .dis-pic-block{
-    width: 165px;
-    position: relative;
-    float: left;
-    margin: 24px 10px 0px 0px;
-}
-.dis-pic-area .dis-pic-block .block-border{
-    width: 155px;
-    height:155px;
-    border:1px solid #c7c7c7;
-    background: #fff;
     float: right;
+    width: 291px;
+    border-right: 1px solid #ccc;
+    color: #AAA;
 }
-.dis-pic-area .dis-pic-block .block-border + div{
-    width: 155px;
-    height:155px;  
-    position: absolute;
-    border:1px solid #c7c7c7;
-    top: -4px;
-    left: 5px;
-    background: #fff;
-    padding: 6px;
+.nav-tabs .nav-tabs-last + li a{
+    display: inline-block;
+    color: #9b9ba5;
+    font-size: 12px;
+    padding-left: 21px;
+    padding-right: 4px;
+    background: url("../images/icons/vip-icons-2.png") no-repeat -72px 7px;
+    float: right;
+    margin-right: 15px;
+    margin-left: 0px;
+    letter-spacing: 1px;
 }
-.dis-pic-area .dis-pic-block .block-border + div img{
-    width:100%;
-    height: 100%;
+.nav-tabs .nav-tabs-last + li a:hover{
+	border-color: #e7e7e7 #e7e7e7 #e7e7e7;
 }
-.dis-pic-area .dis-pic-block h1{
-    color: #393939;
+.nav-tabs .nav-tabs-last + li a + span{
+    float: right;
+    line-height: 31px;
+    background: #e7e7e7;
+}
+.nav-tabs .nav-tabs-last + li a + span + a{
+    background: url("../images/icons/vip-icons-2.png") no-repeat 0px 7px;
+    margin-right: 0;
+}
+
+/* 写日志按钮 按列表排序*/
+.write-log{
+    border-bottom: 1px solid #ccc;
+
+    padding-bottom: 20px;
+}
+.write-log > button{
+    color: #fff;  
+    padding: 9px 20px 9px 46px;
+    font-size: 14px;
+    background: url("../images/icons/vip-icons-3.png") no-repeat 14px 8px;
+	background-color: #7b8c9e;  border-color: #cccccc;
+    line-height: 17px;
+}
+.write-log > button:hover{
+    color: #fff;  
+    background-color: #7b8c9e;  border-color: #adadad;
+}
+.write-log > button:active{
+	color: #fff;  
+	background: url("../images/icons/vip-icons-3.png") no-repeat 14px 7px;
+    background-color: #7b8c9e;  border-color: #adadad;
+}
+.write-log > button:focus{
+	color: #fff;  
+	background: url("../images/icons/vip-icons-3.png") no-repeat 14px 7px;
+    background-color: #7b8c9e;  border-color: #adadad;
+}
+.write-log .btn-group button{
+    background-color: transparent;  border-color: #cccccc;
+    padding: 4px 8px;
+    border: 0px solid transparent;
+    color:#26709a;
     font-size: 12px;
     font-weight: bold;
-    padding: 5px 5px 7px 5px;
+    margin-top: 9px;
 }
-.dis-pic-area .dis-pic-block p span{
-    padding: 6px 6px 0 6px;
+.write-log .btn-group a{
+    color:#26709a;
+    font-size: 12px;
+    font-weight: bold;
+}
+.write-log > span{ 
+    background-color: transparent;  
+    border-color: #cccccc;
+    padding: 0px 8px;
+    border: 0px solid transparent; 
+    color:#26709a;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 10px;
+}
+.write-log > span:hover{
+    color: #26709a;
+    background-color: transparent;
+    border-color: #adadad;
+}
+
+/*日志摘要显示block*/
+.dis-log-block{
+    padding-bottom: 22px;
+
+    margin-bottom: 5px;
+    border-bottom: 2px dotted #c7c7c7;
+}
+.dis-log-block > h1 {
+    color: #26709a;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: bold;
+    padding: 15px 0 2px 0;
+    display: block;
+}
+.dis-log-block > h1 a{
+    color: #26709a;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+.dis-log-block > div.article-digest{
+    padding: 10px 0 10px;
+    color: #494949;
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: bold;
+}
+.dis-log-block > div.article-digest p{
+    color: #494949;
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: bold;
+}
+.dis-log-block > p.digest-metas span{
+    color: #9b9b9b;
     
-    font-size: 12px;  font-weight: bold;
-    color: #a2a2a2;
+    font-weight: bold;
+    margin-right: 6px;
 }
-.dis-pic-area .dis-pic-block p span + span{
-    padding: 0;
+.dis-log-block > p.digest-metas span a{
+    color: #9b9b9b;
+    
+    font-weight: bold;
 }
+.dis-log-block > p.digest-metas span a span.caret{
+    border-top: 4px solid #9b9b9b;
+    
+    margin-bottom: 2px;
+}
+
+
+
+
+
+
 /*分页按钮*/
 .nav-page{
     position: absolute;
