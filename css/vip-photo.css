@@ -117,7 +117,7 @@
     width: 742px;
     background: #f1f1f1;
     float: right;
-    padding: 5px 20px 60px 20px;
+    padding: 20px 20px 60px 20px;
     position: relative;
 }
 
@@ -365,7 +365,6 @@
     border-top: 4px solid transparent;  border-bottom: 4px solid transparent;  border-right: 0 dotted;  
     border-left: 4px solid #ff6400;
     
-    margin-bottom: 3px;
 }
 .nav-page a.prev-button .caret{
     border-top: 4px solid transparent;  
@@ -373,7 +372,6 @@
     border-left: 0 dotted;  
     border-right: 4px solid #ff6400;
     
-    margin-bottom: 3px;
 }
 .nav-page .nav-page-num{
     /*width:162px;*/
