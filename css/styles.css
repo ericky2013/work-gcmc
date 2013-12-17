@@ -205,6 +205,7 @@ a{
 }
 .drop-menu .drop-menu-box .pic_text dd{
 	text-indent: -23px;
+	text-align: center;
 }
 .drop-menu .last-drop-menu-box{
 	border-right: 0px solid;
@@ -918,7 +919,21 @@ li.nav-products:hover .drop-menu{
 	padding: 0px !important;
 }
 
-
+/*2013-12-17*/
+/* 修复导航下拉菜单字体对其样式 */
+.drop-menu .drop-menu-box .pic_text dd {
+	text-indent: 0px;
+	text-align: left;
+}
+.drop-menu .drop-menu-box .pic_text {
+	text-align: left;
+}
+/*修复字体过于粗大*/
+.brief-text h1 {
+	font-size: 21px;
+	font-weight: normal;
+	line-height: 22px;
+}
 
 
 

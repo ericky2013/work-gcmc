@@ -167,11 +167,6 @@
 					<a href="#" class="insert-accessory"></a>
 					<button type="submit" class="btn btn-default">发表</button>
 				</form>
-				<!-- 图片上传弹出框 -->
-				<div class="img-upload-block">
-					<span></span>
-					<span></span>
-				</div>
 			</div>
 
 			<!-- 主内容 相册 日志 ... -->
@@ -210,28 +205,7 @@
 								</div>
 
 								<!-- 评论显示块 -->
-								<div class="dis_replay">
-									<!-- 注意第一个 div dis_clone 这个为回复模版 为了克隆事件保留下来 整个页面只有一个 -->
-									<div class="display-comments-block dis_none dis_clone clearfix">
-										<span></span>
-										<span></span>
-										<div class="friend-img-comments clearfix">
-					  						<a href="#"><img src="images/icons/vip-friend-img-1.png" alt=""></a>
-							  			</div>
-							  			<div class="friend-comments clearfix">
-							  				<div class="friend-comments-main clearfix">
-							  					<a href="#">用户D</a> 回复 <a href="#">用户A :</a>
-								  				<p>
-								  					
-								  				</p>
-							  				</div>
-								  			<div class="comments-metas clearfix">
-								  					<span class="comments-time">11:71</span>
-								  					<span class="comments-answer"><a href="#" class="toggle-comments">回复</a></span>
-								  			</div>
-							  			</div>
-									</div>								
-
+								<div>
 									<div class="display-comments-block clearfix">
 										<span></span>
 										<span></span>
@@ -284,7 +258,7 @@
 							  			</div>
 							  			<div class="friend-comments clearfix">
 							  				<div class="friend-comments-main clearfix">
-							  					<a href="#">用户D</a>
+							  					<a href="#">用户D :</a>
 								  				<p>
 								  					据中国之声《央广新闻》报道，继微信封杀来往链接以后，手机淘宝也进行了对微信的屏蔽：目前手机淘宝已经关
 												   闭了从微信跳转到淘宝商品和店铺的通道，从微信的淘宝商品以及店铺的链接点击进入，会跳转到手机淘宝的下载
@@ -336,7 +310,7 @@
 								</div>
 								
 								<!-- 评论显示块 -->
-								<div class="dis_replay">
+								<div>
 									<div class="display-comments-block clearfix">
 										<span></span>
 										<span></span>
@@ -394,7 +368,7 @@
 									<span class="article-forwards"><a href="#">转发</a></span>
 								</div>
 								<!-- 评论显示块 -->
-								<div class="dis_replay">
+								<div>
 									<div class="display-comments-block clearfix">
 										<span></span>
 										<span></span>
@@ -452,7 +426,7 @@
 								</div>
 
 								<!-- 评论显示块 -->
-								<div class="dis_replay">
+								<div>
 									<div class="display-comments-block clearfix">
 										<span></span>
 										<span></span>
@@ -648,16 +622,13 @@
 				 evt.preventDefault();
 				 $(this).css("display","none");
 				 $(this).next().fadeIn().children("textarea").focus();
-			});
-
+			})
 			toggleCom.on('click',function(evt){
 				evt.preventDefault();
 				var currentComBlcok = $(this).closest(".display-contents-block");
 				currentComBlcok.find(".input-com").css("display","none");
-				var replayName = $(this).closest(".friend-comments").find('.friend-comments-main').children("a").eq(0).text();
-				// console.log(replayName);
-				currentComBlcok.find(".form_2").fadeIn().children("textarea").focus().val('@'+replayName+":");
-			});
+				currentComBlcok.find(".form_2").fadeIn().children("textarea").focus();
+			})
 
 			$(".cancel-com").on("click",function(evt){
 				 evt.preventDefault();
@@ -665,61 +636,7 @@
 				 // console.log(currentComBlcok);
 				 currentComBlcok.find(".form_2").css("display","none");
 				 currentComBlcok.find(".input-com").fadeIn();
-			});
-
-			//ajax 发送评论数据 发送成功实时显示 
-			//注意使用插入html的形式不能绑定之前的事件 所以这里采用clone方法复制事件
-			$('.comments-input').find(':submit').click(function(evt){
-				evt.preventDefault();
-				var $this = $(this);
-				var currentDisReplay = $this.closest('.friend-content').find('.dis_replay');
-				var currentComments = $this.closest('.comments-input');
-				var currentForm = $this.closest('.comments-input').find('textarea');
-				var comInputValue = currentForm.val();
-				var tmpIndex = comInputValue.indexOf(":");
-				var sendToData = "";
-				if(tmpIndex){
-					sendToData = comInputValue.substr(tmpIndex+1);
-					if(sendToData == ""){
-						$this.attr("disabled");
-						return;
-					}
-				}else{
-					if(sendToData == ""){
-						$this.attr("disabled");
-						return;
-					}
-					sendToData = comInputValue;
-				}
-				
-				// console.log(sendToData);
-
-				// console.log(comInputValue);
-				$.ajax({
-					type:'post',
-					url:'test.php',
-					data: { userComments:sendToData },
-					beforeSend:function(){
-						// console.log("before");
-					},
-					success:function(data){
-						// console.log(data);
-						currentForm.val('');
-						var dis_clone = $('.dis_clone').clone(true).css('display','block');
-						dis_clone.removeClass('dis_clone');
-						//设置返回的评论数据
-						dis_clone.find('.friend-comments-main').children('p').text(data);
-						//隐藏输入框
-						$(".cancel-com").trigger('click');
-						currentDisReplay.css('display','block');
-						currentDisReplay.append(dis_clone);
-
-					},
-					error:function(msg){
-						// console.log('error' + msg);
-					}
-				});
-			});
+			})
 
 		});
 	</script>
