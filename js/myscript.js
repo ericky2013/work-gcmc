@@ -216,11 +216,18 @@ $(document).ready(function(){
 
 /*图片banner */
 	var bannerSlider = $('.banner-slider');
-	bannerSlider.children("li").removeClass("dis_none");
-	bannerSlider.bxSlider({
-		 mode: 'horizontal',
-		 captions: true
-	});
+
+	if(bannerSlider.length !='0'){
+		bannerSlider.children("li").removeClass("dis_none");
+		bannerSlider.bxSlider({
+			 mode: 'horizontal',
+			 captions: true
+		});
+	}
+		
+	
+
+
 
 //判断文档模型:
 // alert(document.documentMode);

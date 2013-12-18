@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css" />
 	<link rel="stylesheet" href="css/base_style.css"/>
 	<link rel="stylesheet" href="css/refineslide.css">
+	<link rel="stylesheet" href="css/uploadify.css">
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/vip-center.css" />
 	<!--[if lt IE 9]>
@@ -168,9 +169,23 @@
 					<button type="submit" class="btn btn-default">发表</button>
 				</form>
 				<!-- 图片上传弹出框 -->
-				<div class="img-upload-block">
-					<span></span>
-					<span></span>
+				<div class="img-upload-block dis_none">
+					<span class="my_caret">
+						<b></b>
+						<b></b>
+					</span>
+					<h1>本地上传</h1>
+					<div class="img-list">
+						<h2>已上传 <span class="up_imgs_num">0</span> 张,还可以上传 <span class="up_imgs_num"> 7 </span> 张 <em >（按住ctrl可选择多张）</em></h2>
+						<ul class="upload-img-list clearfix">
+							<div id="queue"></div>
+							<li class="upload-btn">
+								<input type="file" name="file_upload" id="filebtn">
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="close" >&times;</button>
+					
 				</div>
 			</div>
 
@@ -637,11 +652,27 @@
 	<script src='js/jquery.mousewheel.3.1.4.js'></script>
 	<script src='js/jquery.refineslide.js'></script>
 	<script src='js/jquery.isotope.min.js'></script>
-	<script src="js/swfobject.js"></script>
+	<!-- // <script src="js/swfobject.js"></script> -->
+	<script src='js/jquery.uploadify.js'></script>  <!-- 注意uploadify插件已包含swfobject插件 -->
 	<script src='js/jQuery-flash.js'></script>
 	<script src='js/myscript.js'></script>
 	<script>
 		$(document).ready(function(){
+
+			//js取出空格
+			// Trim() , Ltrim() , RTrim()   
+			String.prototype.Trim = function(){    
+				return this.replace(/(^\s*)|(\s*$)/g, "");    
+			}    
+			String.prototype.LTrim = function(){    
+				return this.replace(/(^\s*)/g, "");    
+			}    
+			String.prototype.RTrim = function(){    
+				return this.replace(/(\s*$)/g, "");    
+			}    
+
+
+
 			var toggleCom = $(".toggle-comments");
 			var subCom = $('.input-com');
 			subCom.on('click',function(evt){
@@ -667,6 +698,72 @@
 				 currentComBlcok.find(".input-com").fadeIn();
 			});
 
+			//图片上传:
+			$('.vip-input-info').on('click','.insert-img',function(evt){
+				 evt.preventDefault();
+				 $('.img-upload-block').show().find('.close').click(function(evt){
+				 	evt.preventDefault();
+				 	$(this).closest('.img-upload-block').hide();
+				 });
+			});
+
+			var up_imgs_num = $('.up_imgs_num');
+			$('#filebtn').uploadify({
+				'swf'          	: "swf/uploadify.swf",
+				'uploader'     	: 'upload.php',
+				'auto'				:  true,
+				'button'       	: "选择照片",
+				'height'       	: "80",
+				'width'        	: '80',
+				'buttonClass'  	: 'mybutton',
+				'buttonImage'		: 'images/add-photo-multi.png',
+				'queueID'      	: 'queue',
+				'uploadLimit'  	: 7,
+				'queueSizeLimit'  : 3,
+				'fileSizeLimit'   : '5000kb',
+				'itemTemplate' 	: '\
+								        <div id="${fileID}" class="uploadify-queue-item">\
+									        	<div class="cancel">\
+									     			 <a href="javascript:$(\'#${instanceID}\').\
+													 uploadify(\'cancel\', \'${fileID}\')">X</a>\
+									        	</div>\
+									        <span class="fileName">${fileName} (${fileSize})</span>\
+									        <span class="data"></span>\
+								        </div>' ,
+				'onDialogClose'   :function(queueData){
+					 /*console.log('加入了:'   +queueData.filesQueued + 
+					 				 '选择了:'   +queueData.filesSelected　+ 
+					 				 '队列长度:' +queueData.queueLength　+
+			    					 "出错数:"   +queueData.filesErrored); */
+				},	
+				'onUploadStart'	:function(file){
+					// console.log("开始上传..." + file.name);    //这里注意对比和服务器端返回的文件名
+					var loadingButton = $('<li class="loading" />');
+					var insertTag = $('.upload-img-list li:last-child'); 
+					loadingButton.insertBefore(insertTag);
+				},
+				'onUploadSuccess' :function(file, data, response){
+					// console.log(file.name + "-->" + data);
+					var tmp = $('.loading');
+					tmp.append("<img src='uploads/"+data+"'/>");
+					tmp.removeClass('loading');
+
+					var uploadLimit = this.settings.uploadLimit;   //获取图片上传最大数量
+					up_imgs_num.eq(0).text( $('.upload-img-list').children('li').length - 1 );  //更新已上传图片数量
+					up_imgs_num.eq(1).text( uploadLimit - ($('.upload-img-list').children('li').length - 1));  //更新还可以上传的图片数量
+				},
+				'onUploadError': function(){
+					alert("上传出错或超时,请检查网络连接...");
+					return false;
+				},
+				'onSelectError':function(){
+					alert("一次最多只能选择7个文件");
+					return false;
+				}
+			});
+
+
+
 			//ajax 发送评论数据 发送成功实时显示 
 			//注意使用插入html的形式不能绑定之前的事件 所以这里采用clone方法复制事件
 			$('.comments-input').find(':submit').click(function(evt){
@@ -680,6 +777,7 @@
 				var sendToData = "";
 				if(tmpIndex){
 					sendToData = comInputValue.substr(tmpIndex+1);
+					sendToData = sendToData.Trim();   //去空格
 					if(sendToData == ""){
 						$this.attr("disabled");
 						return;
