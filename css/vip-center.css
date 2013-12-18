@@ -240,7 +240,20 @@ div.face-upload-block{
 div.face-upload-block > span{
     left: 10px;
 }
+#emotions{
+    position: relative;
+    width: 100%;
+}
 
+#emotions .container{
+    width: 100%;
+}
+#emotions .container a {
+    width: 30px;
+    height: 30px;
+    padding: 4px 2px;
+    margin: 7px 0 0 2px;
+}
 
 
 
@@ -511,15 +524,6 @@ div.face-upload-block > span{
 
 }
 
-
-
-
-
-
-
-
-
-
 /*分页按钮*/
 .nav-page{
     position: absolute;
@@ -528,7 +532,7 @@ div.face-upload-block > span{
     /*width: 372px;*/
     height: 30px;
     display: inline-block;
-    z-index: 51;
+    z-index: 1;
     margin-top: 8px;
 }
 .nav-page div,

@@ -32,12 +32,13 @@ var uSinaEmotionsHt = new Hashtable();
 // 初始化缓存，页面仅仅加载一次就可以了
 $(function() {
 	var app_id = '1362404091';
+	// var app_id = '1362404090';
 	$.ajax( {
 		dataType : 'jsonp',
 		url : 'https://api.weibo.com/2/emotions.json?source=' + app_id,
 		success : function(response) {
 			var data = response.data;
-			console.log(data);
+			// console.log(data);
 			for ( var i in data) {
 				// console.log(data[i]);
 				// return;
@@ -56,11 +57,11 @@ $(function() {
 				// console.log(uSinaEmotionsHt._hash);
 
 			}
-			console.log(uSinaEmotionsHt._hash);
-			console.log(uSinaEmotionsHt.size());
-			console.log(uSinaEmotionsHt.get('[BOBO么么哒]'));
-			console.log(uSinaEmotionsHt.get('[886]'));
-			console.log(emotions);
+			// console.log(uSinaEmotionsHt._hash);
+			// console.log(uSinaEmotionsHt.size());
+			// console.log(uSinaEmotionsHt.get('[BOBO么么哒]'));
+			// console.log(uSinaEmotionsHt.get('[886]'));
+			// console.log(emotions);
 		}
 	});
 });
@@ -81,24 +82,37 @@ function AnalyticEmotion(s) {
 }
 
 (function($){
-	$.fn.SinaEmotion = function(target){
+	$.fn.SinaEmotion = function(target,appendIn){
 		console.log(target);
+		console.log(appendIn);
 		var cat_current;
 		var cat_page;
 		$(this).click(function(event){
 			console.log(this);
+			event.preventDefault();   //原插件没有阻止默认行为
 			event.stopPropagation();
 			
-			var eTop = target.offset().top + target.height() + 15;
-			var eLeft = target.offset().left - 1;
+			// var eTop = target.offset().top + target.height() + 15;
+			// var eLeft = target.offset().left - 1;
 			
-			if($('#emotions .categorys')[0]){
-				$('#emotions').css({top: eTop, left: eLeft});
-				$('#emotions').toggle();
-				return;
-			}
-			$('body').append('<div id="emotions" class="clearfix"></div>');
-			$('#emotions').css({top: eTop, left: eLeft});
+			// if($('#emotions .categorys')[0]){
+			// 	$('#emotions').css({top: eTop, left: eLeft});
+			// 	$('#emotions').toggle();
+			// 	return;
+			// }
+			$('.pop-upload-block').hide();
+				 $('.' + $(this).data('pop') ).show().find('.close').click(function(evt){
+				 	evt.preventDefault();
+				 	evt.stopPropagation();
+				 	$(this).closest('div').hide();
+			 });
+			// $('body').append('<div id="emotions" class="clearfix"></div>');
+			//我将其改为 ,增加了一个参数 appendIN
+			// appendIn.append('<div id="emotions" class="clearfix"></div>');
+			console.log($('.face-upload-block'));
+			$('.face-upload-block').append('<div id="emotions" class="clearfix"></div>');
+			console.log($('#emotions'));
+			// $('#emotions').css({top: eTop, left: eLeft});
 			$('#emotions').html('<div>正在加载，请稍候...</div>');
 			$('#emotions').click(function(event){
 				event.stopPropagation();
@@ -115,9 +129,10 @@ function AnalyticEmotion(s) {
 			showEmotions();
 			
 		});
-		$('body').click(function(){
-			$('#emotions').remove();
-		});
+		// $('body').click(function(){
+		// 	alert(1235);
+		// 	$('#emotions').remove();
+		// });
 		$.fn.insertText = function(text){
 			this.each(function() {
 				if(this.tagName !== 'INPUT' && this.tagName !== 'TEXTAREA') {return;}
@@ -170,7 +185,7 @@ function AnalyticEmotion(s) {
 			$('#emotions .container a').click(function(){
 				target.insertText($(this).attr('title'));  //点击具体的表情时读取到此表情a上面的attr[title]属性值插入到textarea
 				// target.insertText("123"); 
-				$('#emotions').remove();
+				// $('#emotions').remove();    /*这里难道点一个表情就移除一次吗?*/
 			});
 			for(var i = 1; i < emotions[category].length / 72 + 1; ++i){
 				$('#emotions .page').append($('<a href="javascript:void(0);"' + (i == page + 1?' class="current"':'') + '>' + i + '</a>'));

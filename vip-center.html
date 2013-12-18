@@ -169,7 +169,6 @@
 					<a href="#" class="insert-accessory"></a>
 					<button type="submit" class="btn btn-default">发表</button>
 				</form>
-
 				<!-- 表情图片 弹出框 -->
 				<div class="pop-upload-block face-upload-block dis_none">
 					<span class="my_caret">
@@ -178,12 +177,11 @@
 					</span>
 					<h1>选择表情图片</h1>
 
-					<div id="out" style="height:auto; width: 400px; border: 1px dashed #000000; padding: 10px;">
-					<button id="analytic" type="button" value="解析" onClick="out()" >解析</button>
+					<div id="out" style="height:auto; width: 100%; border: 1px dashed #000000; padding: 10px;">
+					</div>
+					<button id="analytic" type="button" value="解析"  >解析</button>
 					<button type="button" class="close" >&times;</button>
-					
 				</div>
-
 				<!-- 图片上传弹出框 -->
 				<div class="pop-upload-block img-upload-block dis_none">
 					<span class="my_caret">
@@ -201,10 +199,10 @@
 						</ul>
 					</div>
 					<button type="button" class="close" >&times;</button>
-					
 				</div>
 			</div>
-
+			
+			
 			<!-- 主内容 相册 日志 ... -->
 			<div class="main-contents">
 				<!-- 全部 相册 日志选项卡 -->
@@ -719,7 +717,7 @@
 
 			console.log($('.emotion').val());
 			// 绑定表情
-			$('#face').SinaEmotion($('.emotion'));
+			$('#face').SinaEmotion($('.emotion'),$('.face-upload-block'));
 			console.log($('.emotion').val());
 
 			// 测试本地解析
@@ -729,7 +727,12 @@
 				$('#out').html(AnalyticEmotion(inputText));
 			}
 
-			$('.vip-input-info').on('click','.insert-img, .insert-face',function(evt){
+			$('#analytic').click(function(evt){
+				 out();
+				 evt.preventDefault();
+			})
+
+			$('.vip-input-info').on('click','.insert-img',function(evt){
 				 evt.preventDefault();
 				 $('.pop-upload-block').hide();
 				 $('.' + $(this).data('pop') ).show().find('.close').click(function(evt){
