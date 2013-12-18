@@ -171,7 +171,7 @@
 .vip-input-info {
     position: relative;
 }
-.img-upload-block{
+.pop-upload-block{
     position: absolute;
     border: 2px solid #d0d0d0;
     padding: 0px;
@@ -184,7 +184,7 @@
     border-radius: 5px;
     /* box-shadow: 1px 1px #CCC,-1px -1px #ccc; */
 }
-.img-upload-block > span{
+.pop-upload-block > span{
     display: block;
 	height: 10px;
 	width: 20px;
@@ -193,7 +193,7 @@
     top: -7px;
     left: 26px;
 }
-.img-upload-block > span b{
+.pop-upload-block > span b{
 	overflow: visible;
 	font-family: simsun;
 	width: 0;
@@ -209,20 +209,20 @@
 	border-width: 0 7px 8px 7px;
 	border-color: transparent transparent #D0D0D0 transparent;
 }
-.img-upload-block span b + b{
+.pop-upload-block span b + b{
 	border-style: dashed dashed solid dashed;
 	left: 1px;
 	top: 0;
 	border-width: 0 6px 7px 6px;
 	border-color: transparent transparent #fff transparent;
 }
-.img-upload-block .close{
+.pop-upload-block .close{
     position: absolute;
     top: 2px;
     right: 8px;
 
 }
-.img-upload-block h1{
+.pop-upload-block h1{
     background: #f2f2f2;
     height: 30px;
     line-height: 30px;
@@ -233,31 +233,43 @@
     color: #333;
 }
 
+/*表情上传弹出框 调整*/
+div.face-upload-block{
+    left: 0px;
+}
+div.face-upload-block > span{
+    left: 10px;
+}
+
+
+
+
+
 /*自定义插件uploadify 上传样式*/
 
-.img-upload-block .wrapper-upload-img-list{
+.pop-upload-block .wrapper-upload-img-list{
     
 }
-.img-upload-block .mybutton{
+.pop-upload-block .mybutton{
     background-color: transparent;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
     border: 0px solid transparent;
 }
-.img-upload-block .img-list{
+.pop-upload-block .img-list{
     width: 417px;
     overflow: hidden;
     padding: 20px 20px 20px 20px;
 }
-.img-upload-block .img-list h2 em{
+.pop-upload-block .img-list h2 em{
     color:#808080;
     font-weight: bold;
 }
-.img-upload-block .upload-img-list{
+.pop-upload-block .upload-img-list{
     width: 100%;
 }
-.img-upload-block .upload-img-list li{
+.pop-upload-block .upload-img-list li{
     float:left;
     margin: 10px 5px 0 0;
     width: 80px;
@@ -265,11 +277,11 @@
     cursor: pointer;
     position: relative;
 }
-.img-upload-block .upload-img-list li.loading{
+.pop-upload-block .upload-img-list li.loading{
     background: url('../images/loading.gif') no-repeat center;
     border: 1px solid #ccc;
 }
-.img-upload-block .upload-img-list li img{
+.pop-upload-block .upload-img-list li img{
     width: 100%;
     height:100%;
 }
