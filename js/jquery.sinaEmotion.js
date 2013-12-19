@@ -32,7 +32,7 @@ var uSinaEmotionsHt = new Hashtable();
 // 初始化缓存，页面仅仅加载一次就可以了
 $(function() {
 	var app_id = '1362404091';
-	// var app_id = '1362404090';
+	// var app_id = '527071265';    //使用我自己的app key 目前还不能使用自己的app key 还没有授权
 	$.ajax( {
 		dataType : 'jsonp',
 		url : 'https://api.weibo.com/2/emotions.json?source=' + app_id,
@@ -70,7 +70,7 @@ $(function() {
 function AnalyticEmotion(s) {
 	if(typeof (s) != "undefined") {
 		var sArr = s.match(/\[.*?\]/g);
-		console.log(sArr);
+		// console.log(sArr);
 		for(var i = 0; i < sArr.length; i++){
 			if(uSinaEmotionsHt.containsKey(sArr[i])) {
 				var reStr = "<img src=\"" + uSinaEmotionsHt.get(sArr[i]) + "\" height=\"22\" width=\"22\" />";
@@ -83,12 +83,12 @@ function AnalyticEmotion(s) {
 
 (function($){
 	$.fn.SinaEmotion = function(target,appendIn){
-		console.log(target);
-		console.log(appendIn);
+		// console.log(target);
+		// console.log(appendIn);
 		var cat_current;
 		var cat_page;
 		$(this).click(function(event){
-			console.log(this);
+			// console.log(this);
 			event.preventDefault();   //原插件没有阻止默认行为
 			event.stopPropagation();
 			
@@ -109,9 +109,9 @@ function AnalyticEmotion(s) {
 			// $('body').append('<div id="emotions" class="clearfix"></div>');
 			//我将其改为 ,增加了一个参数 appendIN
 			// appendIn.append('<div id="emotions" class="clearfix"></div>');
-			console.log($('.face-upload-block'));
+			// console.log($('.face-upload-block'));
 			$('.face-upload-block').append('<div id="emotions" class="clearfix"></div>');
-			console.log($('#emotions'));
+			// console.log($('#emotions'));
 			// $('#emotions').css({top: eTop, left: eLeft});
 			$('#emotions').html('<div>正在加载，请稍候...</div>');
 			$('#emotions').click(function(event){

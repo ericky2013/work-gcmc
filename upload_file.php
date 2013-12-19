@@ -19,15 +19,15 @@
 	//保存文件名
 
 	// Validate the file type
-	$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+	$fileTypes = array('txt','doc','zip','rar','docx'); // File extensions
 	
 	$fileParts = pathinfo($_FILES['Filedata']['name']);
 	//$fileParts['extension'] 取得文件后缀名
 	if (in_array($fileParts['extension'],$fileTypes)) {   //如果上传的是符合的图片格式
 		$save_name = uniqid().'.'.$fileParts['extension'];     //取得一个唯一的文件名
-		$result = move_uploaded_file($tmp, $path_img.$save_name);  //移动到指定的路径
+		$result = move_uploaded_file($tmp, $path_file.$save_name);  //移动到指定的路径
 		if($save_name){
-			echo $save_name;
+			echo $fileParts['extension'];
 		}
 	}else {												
 		echo '0';

@@ -1,5 +1,6 @@
 #ignore these files and folder
 *.dll
+*.psd
 videos/*
 others/*
 uploads/*

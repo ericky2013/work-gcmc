@@ -233,6 +233,65 @@
     color: #333;
 }
 
+/*文件上传弹出框*/
+div.file-upload-block{
+    left: 37px;
+}
+/*重写之前的图片上传样式*/
+.pop-upload-block .file-list{
+    width: 417px;
+    overflow: hidden;
+    padding: 20px 20px 20px 20px;
+}
+.pop-upload-block .file-list h2 em{
+    color:#808080;
+    font-weight: bold;
+}
+.pop-upload-block .upload-file-list{
+    width: 100%;
+}
+.pop-upload-block .upload-file-list li{
+    float:left;
+    margin: 10px 5px 0 0;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    position: relative;
+}
+.pop-upload-block .upload-file-list li.loading{
+    background: url('../images/loading.gif') no-repeat center;
+    border: 1px solid #ccc;
+}
+.pop-upload-block .upload-file-list li img{
+    width: 100%;
+    height:100%;
+}
+
+/*文件上传显示的缩略图 不同的后缀名有不同的类*/
+.file_thumb{
+    width:100%;
+    height: 100%;
+}
+.txt{
+    background: url("../images/icons/icon-files.png") no-repeat 8px 8px;
+}
+.zip{
+    /* background: #fff; */
+    background: url("../images/icons/icon-files.png") no-repeat 8px -1819px;
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*表情上传弹出框 调整*/
 div.face-upload-block{
     left: 0px;

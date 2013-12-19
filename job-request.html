@@ -169,7 +169,7 @@
 									<table width="100%" cellpadding="5" cellspacing="0" border="1">
 										<tr>
 											<td class="td-1">应聘职位</td>
-											<td class="td-2 text_left"><input type="text"></td>
+											<td class="td-2 text_left"><input type="text" placeholder="请输入应聘的职位名" title="没有此职位,请重新输入,请重新输入,请重新输入"></td>
 											<td class="td-1">性别</td>
 											<td class="text_left">
 												<select name="gender" id="gender">
@@ -180,7 +180,7 @@
 										</tr>
 										<tr>
 											<td class="td-1">姓名</td>
-											<td class="td-2 text_left"><input type="text"></td>
+											<td class="td-2 text_left"><input type="text" placeholder="请输入姓名" title="姓名输入错误"></td>
 											<td class="td-1">婚姻状况</td>
 											<td class="text_left">
 												<select name="gender" id="gender">
@@ -192,7 +192,7 @@
 										</tr>
 										<tr>
 											<td class="td-1">出生年月</td>
-											<td class="td-2 text_left"><input type="text"></td>
+											<td class="td-2 text_left"><input type="text" placeholder="请输入出生年月" title="出生年月输入错误"></td>
 											<td class="td-1">学历</td>
 											<td class="text_left">
 												<select name="gender" id="gender">
@@ -205,19 +205,19 @@
 										</tr>
 										<tr>
 											<td class="td-1">毕业院校</td>
-											<td class="td-2 text_left"><input type="text"></td>
+											<td class="td-2 text_left"><input type="text" placeholder="请输入毕业院校" title="毕业院校输入错误"></td>
 											<td class="td-1">毕业时间</td>
-											<td class="td-2 text_left"><input type="text"></td>
+											<td class="td-2 text_left"><input type="text" placeholder="请输入毕业时间" title="毕业时间输入错误"></td>
 										</tr>
 										<tr>
 											<td class="td-1">电话</td>
-											<td class="td-2 text_left"><input type="text"></td>
+											<td class="td-2 text_left"><input type="text" placeholder="请输入电话" title="电话输入错误"></td>
 											<td class="td-1">邮件地址</td>
-											<td class="td-2 text_left"><input type="text"></td>
+											<td class="td-2 text_left"><input type="text" placeholder="请输入邮件地址" ></td>
 										</tr>
 										<tr>
 											<td class="td-1">联系地址</td>
-											<td class="td-2 text_left" colspan="3"><input type="text" class="contact-address"></td>
+											<td class="td-2 text_left" colspan="3"><input type="text" class="contact-address" placeholder="请输入联系地址" title="联系地址输入错误"></td>
 										</tr>
 										<tr>
 											<td class="td-1 per-resume">个人简历</td>
@@ -302,6 +302,7 @@
 
 	<!-- javascript 文件  -->
 	<script src='js/jquery-1.9.1.js' ></script>
+	<script src='js/bootstrap.js' ></script>
 	<script src='js/jquery.easing.1.3.js'></script>
 	<script src='js/jquery.mousewheel.3.1.4.js'></script>
 	<script src='js/jquery.refineslide.js'></script>
@@ -345,6 +346,27 @@
 				 mode: 'horizontal',
 				 captions: true
 			});
+
+			//表单验证
+			$('td').children('input').tooltip({
+				placement:'right',
+				trigger: "manual",
+				container:"body",
+				title:"输入信息有误!"   //如果没有设置data-title,那么就应用此处的默认提示
+			}).blur(function(){
+
+				
+
+
+				
+				var result = "0";
+				if(result == 0){
+					$(this).tooltip('show');
+					console.log(this);
+				}else{
+					$(this).tooltip('hide');
+				}
+			})
 
 				
 		});

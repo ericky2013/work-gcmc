@@ -182,8 +182,14 @@
 	background: url("../images/icons/form-button-2.png") no-repeat;
 }
 
-
-
+/*表单验证出错信息 style*/
+.formError{	
+	color: #E73939;
+	line-height: 20px;
+	font-family: arial;
+	font-size: 12px;
+	margin-bottom: 0px;
+}
 
 
 

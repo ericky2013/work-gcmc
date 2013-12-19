@@ -150,6 +150,13 @@
 	margin-bottom: 14px;
 }
 
+.job-details-table table #applying{
+	color: #f91;
+	font-size: 13px;
+	float: right;
+	width: auto;
+	margin: 10px;
+}
 
 
 

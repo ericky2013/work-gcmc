@@ -166,7 +166,7 @@
 					<textarea name="text-info" class="emotion"></textarea>
 					<a href="#" class="insert-face" data-pop="face-upload-block" id="face"></a>
 					<a href="#" class="insert-img" data-pop="img-upload-block"></a>
-					<a href="#" class="insert-accessory"></a>
+					<a href="#" class="insert-accessory" data-pop="file-upload-block"></a>
 					<button type="submit" class="btn btn-default">发表</button>
 				</form>
 				<!-- 表情图片 弹出框 -->
@@ -188,13 +188,31 @@
 						<b></b>
 						<b></b>
 					</span>
-					<h1>本地上传</h1>
+					<h1>本地照片上传</h1>
 					<div class="img-list">
-						<h2>已上传 <span class="up_imgs_num">0</span> 张,还可以上传 <span class="up_imgs_num"> 7 </span> 张 <em >（按住ctrl可选择多张）</em></h2>
+						<h2>已上传 <span class="up_imgs_num">0</span> 张照片,还可以上传 <span class="up_imgs_num"> 7 </span> 张照片 <em >（按住ctrl可选择多张）</em></h2>
 						<ul class="upload-img-list clearfix">
 							<div id="queue"></div>
 							<li class="upload-btn">
 								<input type="file" name="file_upload" id="filebtn">
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="close" >&times;</button>
+				</div>
+				<!-- 文件上传弹出框 -->
+				<div class="pop-upload-block file-upload-block dis_none">
+					<span class="my_caret">
+						<b></b>
+						<b></b>
+					</span>
+					<h1>本地文件上传</h1>
+					<div class="file-list">
+						<h2>已上传 <span class="up_files_num">0</span> 个文件,还可以上传 <span class="up_files_num"> 7 </span> 个文件 <em >（按住ctrl可选择多个文件）</em></h2>
+						<ul class="upload-file-list clearfix">
+							<div id="queue"></div>
+							<li class="upload-btn">
+								<input type="file" name="file_upload" id="filebtn2">
 							</li>
 						</ul>
 					</div>
@@ -715,15 +733,15 @@
 
 			//图片 表情 上传:
 
-			console.log($('.emotion').val());
+			// console.log($('.emotion').val());
 			// 绑定表情
 			$('#face').SinaEmotion($('.emotion'),$('.face-upload-block'));
-			console.log($('.emotion').val());
+			// console.log($('.emotion').val());
 
 			// 测试本地解析
 			function out() {
 				var inputText = $('.emotion').val();
-				console.log($('.emotion').val());
+				// console.log($('.emotion').val());
 				$('#out').html(AnalyticEmotion(inputText));
 			}
 
@@ -732,7 +750,7 @@
 				 evt.preventDefault();
 			})
 
-			$('.vip-input-info').on('click','.insert-img',function(evt){
+			$('.vip-input-info').on('click','.insert-img, .insert-accessory',function(evt){
 				 evt.preventDefault();
 				 $('.pop-upload-block').hide();
 				 $('.' + $(this).data('pop') ).show().find('.close').click(function(evt){
@@ -741,7 +759,7 @@
 				 });
 			});
 
-			var up_imgs_num = $('.up_imgs_num');
+			var up_imgs_num = $('.up_imgs_num');	//已上传的图片数量
 			$('#filebtn').uploadify({
 				'swf'          	: "swf/uploadify.swf",
 				'uploader'     	: 'upload.php',
@@ -779,7 +797,7 @@
 				'onUploadSuccess' :function(file, data, response){
 					// console.log(file.name + "-->" + data);
 					var tmp = $('.loading');
-					tmp.append("<img src='uploads/"+data+"'/>");
+					tmp.append("<img src='uploads/imgs/"+data+"'/>");
 					tmp.removeClass('loading');
 
 					var uploadLimit = this.settings.uploadLimit;   //获取图片上传最大数量
@@ -795,6 +813,73 @@
 					return false;
 				}
 			});
+			var up_files_num = $('.up_files_num');	//已上传的图片数量
+			$('#filebtn2').uploadify({
+				'swf'          	: "swf/uploadify.swf",
+				'uploader'     	: 'upload_file.php',
+				'auto'				:  true,
+				'button'       	: "选择照片",
+				'height'       	: "80",
+				'width'        	: '80',
+				'buttonClass'  	: 'mybutton',
+				'buttonImage'		: 'images/add-photo-multi.png',
+				'queueID'      	: 'queue',
+				'uploadLimit'  	: 7,
+				'queueSizeLimit'  : 3,
+				'fileSizeLimit'   : '5000kb',
+				'itemTemplate' 	: '\
+								        <div id="${fileID}" class="uploadify-queue-item">\
+									        	<div class="cancel">\
+									     			 <a href="javascript:$(\'#${instanceID}\').\
+													 uploadify(\'cancel\', \'${fileID}\')">X</a>\
+									        	</div>\
+									        <span class="fileName">${fileName} (${fileSize})</span>\
+									        <span class="data"></span>\
+								        </div>' ,
+				'onDialogClose'   :function(queueData){
+					 /*console.log('加入了:'   +queueData.filesQueued + 
+					 				 '选择了:'   +queueData.filesSelected　+ 
+					 				 '队列长度:' +queueData.queueLength　+
+			    					 "出错数:"   +queueData.filesErrored); */
+				},	
+				'onUploadStart'	:function(file){
+					// console.log("开始上传..." + file.name);    //这里注意对比和服务器端返回的文件名
+					var loadingButton = $('<li class="loading" />');
+					var insertTag = $('.upload-file-list li:last-child'); 
+					loadingButton.insertBefore(insertTag);
+				},
+				'onUploadSuccess' :function(file, data, response){
+					// console.log(file.name + "-->" + data);
+					var tmp = $('.loading');
+					tmp.append("<div class='"+data+" file_thumb'/>");
+					tmp.removeClass('loading');
+					// console.log(data);   //返回的是文件后缀名
+
+					var uploadLimit = this.settings.uploadLimit;   //获取图片上传最大数量
+					up_files_num.eq(0).text( $('.upload-file-list').children('li').length - 1 );  //更新已上传图片数量
+					up_files_num.eq(1).text( uploadLimit - ($('.upload-file-list').children('li').length - 1));  //更新还可以上传的图片数量
+				},
+				'onUploadError': function(){
+					alert("上传出错或超时,请检查网络连接...");
+					return false;
+				},
+				'onSelectError':function(){
+					alert("一次最多只能选择7个文件");
+					return false;
+				}
+			});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
