@@ -615,11 +615,48 @@
 			});
 
 			$('#scrollbox3').enscroll({
-			    showOnHover: true,
+			    showOnHover: false,
 			    verticalTrackClass: 'track3',
 			    verticalHandleClass: 'handle3'
 			});
-				
+
+    //      var windowScrollTop = "";
+			 // $(window).scroll(function(){
+			 // 	console.log(123);
+			 // 	windowScrollTop = $(this).scrollTop();
+			 // });
+
+			 // $('#scrollbox3').scroll(function(evt){
+			 // 	 console.log(windowScrollTop);
+			 // 	 $(window).scrollTop("400");
+			 // 	 console.log($(this).scrollTop());
+			 // 	 evt.preventDefault();
+			 // 	 evt.returnvalue=false;
+			 // });
+
+			$('#scrollbox3').scroll(function(evt){
+				var $this = $(this);
+				var viewH = $this.height();   //可见高度
+				// var viewH1 = $this.get(0).clientHeight;
+				// console.log(viewH);
+				// console.log(viewH1);
+				var contentH = $this.get(0).scrollHeight;  //内容高度
+				console.log(contentH);
+				var scrollTop = $this.scrollTop();   //滚动的高度
+
+				if(contentH - viewH - scrollTop <=100){
+					console.log("已经滚动距离底部100px位置...");
+				}
+			});
+
+
+
+			 
+
+
+
+
+			/***************************/
 		});
 	</script>
 </body>

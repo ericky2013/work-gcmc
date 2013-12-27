@@ -434,6 +434,9 @@ li.nav-products:hover .drop-menu{
  	line-height: 30px;
 }
 
+
+
+
 /*当前 样式需放在最后*/
 .filter-container .filter-item .filter-item-li-current{
 	background: url("../images/icons/filter-btn-current.png");
@@ -935,10 +938,70 @@ li.nav-products:hover .drop-menu{
 	line-height: 22px;
 }
 
+/*2013-12-27*/
+/*首页产品分类栏目增加*/
+.filter-container .filter-item .filter-item-li-1{
+	top: -22px;
+	left: 30px;
+}
+.filter-container .filter-item .filter-item-li-2{
+	top: -21px;
+	left: 170px;
+}
+.filter-container .filter-item .filter-item-li-3{
+	top: -21px;
+	left: 310px;
+}
+.filter-container .filter-item .filter-item-li-4{
+	top: -22px;
+	left: 450px;
+}
 
+.filter-container .filter-item .filter-item-li-5{
+	background: url("../images/icons/filter-btn-Nocurrent.png");
+	top: -22px;
+	left: 590px;
+}
+.filter-container .filter-item .filter-item-li-5 a{
+ 	position: absolute;
+ 	top: 46px;
+ 	left: 36px;
+ 	color: #fff;
+ 	font-size: 15px;
+ 	display: inline-block;
+ 	width: 101px;
+ 	height: 30px;
+ 	text-align: center;
+ 	line-height: 30px;
+}
 
+.filter-container .filter-item .filter-item-li-6{
+	background: url("../images/icons/filter-btn-Nocurrent.png");
+	top: -22px;
+	left: 730px;
+}
+.filter-container .filter-item .filter-item-li-6 a{
+ 	position: absolute;
+ 	top: 46px;
+ 	left: 36px;
+ 	color: #fff;
+ 	font-size: 15px;
+ 	display: inline-block;
+ 	width: 101px;
+ 	height: 30px;
+ 	text-align: center;
+ 	line-height: 30px;
+}
 
-
-
-
+/*2013-12-27*/
+/*首页 活动 新闻 专题 视频 背景图片替换*/
+.preface li:first-child + li .item .bak-img{
+	background: url('../imgs/tab2_img.jpg');
+}
+.preface li:first-child + li +li .item .bak-img{
+	background: url('../imgs/tab3_img.jpg');
+}
+.preface li:first-child + li +li +li .item .bak-img{
+	background: url('../imgs/tab4_img.jpg');
+}
 

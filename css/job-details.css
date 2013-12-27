@@ -104,10 +104,11 @@
 
 /*人才招聘 申请表单*/
 .job-details-table{
-	width:755px;
+	width: 760px;
 	height: 590px;
 	/*background: rgba(54, 54, 54, 0.52);*/
 	color: #959595;
+	overflow: auto;
 }
 
 .job-details-table table th,
@@ -158,7 +159,65 @@
 	margin: 10px;
 }
 
+/*对滚动条的美化*/
 
+/*<!-- 重写 图文内容展示 便于滚动条美化 -->*/
+.content-boxes{
+	width:793px;
+	height: 612px;
+}
+.content-boxes .article-text-down {
+	margin-top: 20px;
+	overflow: hidden;
+	height: 615px;
+	width: 780px;
+}
+
+.list-page-container .list-content .list-contetn-box{
+	padding-right:0;
+}
+
+.job-details-table {
+	width: 770px;
+}
+
+
+#scrollbox3 {
+    overflow: auto;
+    -webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.track3 {
+    width: 10px;
+    background: rgba(0, 0, 0, 0);
+    margin-right: 2px;
+    border-radius: 10px;
+    -webkit-transition: background 250ms linear;
+    transition: background 250ms linear;
+}
+
+.track3:hover,
+.track3.dragging {
+    background: #d9d9d9; /* Browsers without rgba support */
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.handle3 {
+    width: 7px;
+    right: 0;
+    background: #999;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 7px;
+    -webkit-transition: width 250ms;
+    transition: width 250ms;
+}
+
+.track3:hover .handle3,
+.track3.dragging .handle3 {
+    width: 10px;
+}
 
 
 
