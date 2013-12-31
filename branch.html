@@ -8,6 +8,8 @@
 	<!--[if lt IE 9]>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 	<![endif]-->
+	<!-- 使用webkit 内核渲染 content的取值为webkit，ie-comp，ie-stand之一，区分大小写，分别代表用极速模式，兼容模式，IE模式打开 -->
+	<meta name="renderer" content="webkit">
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 	<meta name="description" content="">
@@ -155,9 +157,9 @@
 				<!-- 垂直菜单列表 -->
 		   	<ul class="list-content-ul clearfix " >
 		   		<li class="list-content-logo"></li>    <!-- 类bx-page 为插件bxslider使用 -->
-		   		<li class="list-content-li list-content-li-1 list-content-li-current bx-pager"><a href="" class="test" data-tabdex="active" data-slide-index="0">分支机构</a></li>
-		   		<li class="list-content-li list-content-li-2 bx-pager"><a href="#" class="test" data-tabdex="news" data-slide-index="1">工厂实体</a></li>
-		   		<li class="list-content-li list-content-li-3 bx-pager"><a href="#" data-tabdex="subject" data-slide-index="2">工程销售</a></li>
+		   		<li class="list-content-li list-content-li-1 list-content-li-current bx-pager fade-box"><a href="" class="test" data-tabdex="active" data-slide-index="0">分支机构</a></li>
+		   		<li class="list-content-li list-content-li-2 bx-pager fade-box"><a href="#" class="test" data-tabdex="news" data-slide-index="1">工厂实体</a></li>
+		   		<li class="list-content-li list-content-li-3 bx-pager fade-box"><a href="#" data-tabdex="subject" data-slide-index="2">工程销售</a></li>
 		   	</ul>
 
 		   	<!-- 具体内容列表展示 -->
@@ -383,30 +385,30 @@
 		$(document).ready(function(){
 
 			//nav-bar hover 效果
-			$('.nav-links').hover(function(){
-				// console.log($(this).closest("li"));
-				$(this).closest("li").addClass("borderNone");
-			},function(){
-				$(this).closest("li").removeClass("borderNone");
-			});
+			// $('.nav-links').hover(function(){
+			// 	// console.log($(this).closest("li"));
+			// 	$(this).closest("li").addClass("borderNone");
+			// },function(){
+			// 	$(this).closest("li").removeClass("borderNone");
+			// });
 
-			var currentTab = $('.list-content-li');
-			currentTab.on("click",function(evt){
-				evt.preventDefault();
-				evt.stopPropagation();
-				var $this = $(this);
-				/*var tabIndex = $this.closest("ul").children("li").index($this);
-				var breadcrumbs = $('.breadcrumb-link');*/
-				currentTab.removeClass("list-content-li-current");
-				$this.addClass("list-content-li-current");
-			})
+			// var currentTab = $('.list-content-li');
+			// currentTab.on("click",function(evt){
+			// 	evt.preventDefault();
+			// 	evt.stopPropagation();
+			// 	var $this = $(this);
+			// 	/*var tabIndex = $this.closest("ul").children("li").index($this);
+			// 	var breadcrumbs = $('.breadcrumb-link');*/
+			// 	currentTab.removeClass("list-content-li-current");
+			// 	$this.addClass("list-content-li-current");
+			// })
 
-			$('.bxslider').bxSlider({
+			/*$('.bxslider').bxSlider({
 				 mode: 'fade',
 				 pagerCustom: '.bx-pager',
 				 nextSelector:"next",
 				 slideMargin:"50px"
-			});
+			});*/
 
 			// var bannerSlider = $('.banner-slider');
 			// bannerSlider.children("li").removeClass("dis_none");
@@ -415,11 +417,11 @@
 			// 	 captions: true
 			// });
 
-			$('#thumb-carousel').jsCarousel({ onthumbnailclick: function(src,imgsrc){viewImg(src,imgsrc)}, autoscroll: false, circular: true, masked: false, itemstodisplay: 3, orientation: 'h' });
+			/*$('#thumb-carousel').jsCarousel({ onthumbnailclick: function(src,imgsrc){viewImg(src,imgsrc)}, autoscroll: false, circular: true, masked: false, itemstodisplay: 3, orientation: 'h' });
 			function viewImg(src,imgsrc){
 				var entityImg = $('#entity-img');
 				entityImg.attr("src",imgsrc);
-			};
+			};*/
 
 
 			/*$('.jscarousal-contents-horizontal').find('.visible').find("div").last().css("marginRight","0px");*/

@@ -1,5 +1,5 @@
 /*解决IE8下的console.log调试报错*/
-var debugging = false; // true 为适应IE8-的调试模式    将console.log(转为调用alert函数)
+var debugging = true; // true 为适应IE8-的调试模式    将console.log(转为调用alert函数)
 if( typeof(console) == 'undefined' && debugging) {
 		var console = {
 			log: function(str){
@@ -265,8 +265,7 @@ $(document).ready(function(){
 					 mode: 'fade',
 					 pagerCustom: '.fade-box',
 					 nextSelector:"next",
-					 slideMargin:"50px",
-					 auto:false
+					 slideMargin:"50px"
 			});
 		}
 	}
@@ -278,7 +277,8 @@ $(document).ready(function(){
 		bannerSlider.bxSlider({
 			 mode: 'horizontal',
 			 captions: false,
-			 auto:true
+			 auto:true,
+			 autoControlsCombine:true
 		});
 	}
 
@@ -287,11 +287,16 @@ $(document).ready(function(){
 var scrollbox3 = $('#scrollbox3');
 if(scrollbox3.length != 0){
 	/*自动滚动页面中间,便于用户阅读*/
+  	 var windowScrollTop = "";
+	 $(window).scroll(function(){
+	 	console.log(123);
+	 	windowScrollTop = $(this).scrollTop();
+	 });
+
 	 $('#scrollbox3').scroll(function(evt){
-	 	 var $this = $(this);
-	 	 var viewTop = $this.offset().top;
-	 	 console.log(viewTop);
-	 	 $(window).scrollTop(viewTop-90);
+	 	 console.log(windowScrollTop);
+	 	 $(window).scrollTop("400");
+	 	 console.log($(this).scrollTop());
 	 	 evt.preventDefault();
 	 	 evt.returnvalue=false;
 	 });

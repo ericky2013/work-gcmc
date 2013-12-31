@@ -8,6 +8,8 @@
 	<!--[if lt IE 9]>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 	<![endif]-->
+	<!-- 使用webkit 内核渲染 content的取值为webkit，ie-comp，ie-stand之一，区分大小写，分别代表用极速模式，兼容模式，IE模式打开 -->
+	<meta name="renderer" content="webkit">
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 	<meta name="description" content="">
@@ -154,10 +156,10 @@
 				<!-- 垂直菜单列表 -->
 		   	<ul class="list-content-ul clearfix " >
 		   		<li class="list-content-logo"></li>    <!-- bx-page 为插件bxslider使用 -->
-		   		<li class="list-content-li list-content-li-1 list-content-li-current bx-pager"><a href="" class="test" data-tabdex="active" data-slide-index="0">公司概况</a></li>
-		   		<li class="list-content-li list-content-li-2 bx-pager"><a href="#" class="test" data-tabdex="news" data-slide-index="1">企业文化</a></li>
-		   		<li class="list-content-li list-content-li-3 bx-pager"><a href="#" data-tabdex="subject" data-slide-index="2">发展历程</a></li>
-		   		<li class="list-content-li list-content-li-4 bx-pager"><a href="#" data-tabdex="video" data-slide-index="3">科技创新</a></li>
+		   		<li class="list-content-li list-content-li-1 list-content-li-current bx-pager "><a href="index.html" class="test" data-tabdex="active" data-slide-index="0">公司概况</a></li>
+		   		<li class="list-content-li list-content-li-2 bx-pager fade-box"><a href="#" class="test" data-tabdex="news" data-slide-index="1">企业文化</a></li>
+		   		<li class="list-content-li list-content-li-3 bx-pager fade-box"><a href="#" data-tabdex="subject" data-slide-index="2">发展历程</a></li>
+		   		<li class="list-content-li list-content-li-4 bx-pager fade-box"><a href="#" data-tabdex="video" data-slide-index="3">科技创新</a></li>
 		   	</ul>
 
 		   	<!-- 具体内容列表展示 -->
@@ -576,31 +578,47 @@
 	<script src='js/jQuery-flash.js'></script>
 	<script src="js/jquery.bxslider.js"></script>
 	<script src="js/enscroll-0.5.5.min.js"></script>
-	<!-- // <script src='js/myscript.js'></script> -->
+	<script src='js/myscript.js'></script>
+	<script>
+		/*var debugging = false; // true 为适应IE8-的调试模式    将console.log(转为调用alert函数)
+		if( typeof(console) == 'undefined' && debugging) {
+    		var console = {
+    			log: function(str){
+    				 alert(str);
+    			}
+    		}
+		}else if(!debugging){   //设置为false 将重置所有的console.log函数 使其无效 不管是在IE 还是非IE
+			var console = {
+    			log: function(){
+    				 ;
+    			}
+    		}
+		}   */
+	</script>
 	<script>
 		$(document).ready(function(){
 
-			//nav-bar hover 效果
+			/*//nav-bar hover 效果
 			$('.nav-links').hover(function(){
 				// console.log($(this).closest("li"));
 				$(this).closest("li").addClass("borderNone");
 			},function(){
 				$(this).closest("li").removeClass("borderNone");
-			});
+			});*/
 
-			var currentTab = $('.list-content-li');
+			/*var currentTab = $('.fade-box');
 			currentTab.on("click",function(evt){
 				evt.preventDefault();
 				evt.stopPropagation();
 				var $this = $(this);
-				/*var tabIndex = $this.closest("ul").children("li").index($this);
-				var breadcrumbs = $('.breadcrumb-link');*/
+				//var tabIndex = $this.closest("ul").children("li").index($this);
+				//var breadcrumbs = $('.breadcrumb-link');
 				currentTab.removeClass("list-content-li-current");
 				$this.addClass("list-content-li-current");
-			})
+			})*/
 
 
-			$('.bxslider').bxSlider({
+			/*$('.bxslider').bxSlider({
 				 mode: 'fade',
 				 pagerCustom: '.bx-pager',
 				 nextSelector:"next",
@@ -612,29 +630,34 @@
 			bannerSlider.bxSlider({
 				 mode: 'horizontal',
 				 captions: true
-			});
+			});*/
 
-			$('#scrollbox3').enscroll({
+			/*$('#scrollbox3').enscroll({
 			    showOnHover: false,
 			    verticalTrackClass: 'track3',
 			    verticalHandleClass: 'handle3'
-			});
+			});*/
 
-    //      var windowScrollTop = "";
-			 // $(window).scroll(function(){
-			 // 	console.log(123);
-			 // 	windowScrollTop = $(this).scrollTop();
-			 // });
+			/*自动滚动页面中间,便于用户阅读*/
+			/*var scrollbox3 = $('#scrollbox3');
+			if(scrollbox3.length != 0){
+			  	 var windowScrollTop = "";
+				 $(window).scroll(function(){
+				 	console.log(123);
+				 	windowScrollTop = $(this).scrollTop();
+				 });
 
-			 // $('#scrollbox3').scroll(function(evt){
-			 // 	 console.log(windowScrollTop);
-			 // 	 $(window).scrollTop("400");
-			 // 	 console.log($(this).scrollTop());
-			 // 	 evt.preventDefault();
-			 // 	 evt.returnvalue=false;
-			 // });
+				 $('#scrollbox3').scroll(function(evt){
+				 	 console.log(windowScrollTop);
+				 	 $(window).scrollTop("400");
+				 	 console.log($(this).scrollTop());
+				 	 evt.preventDefault();
+				 	 evt.returnvalue=false;
+				 });
+			}*/
+         
 
-			$('#scrollbox3').scroll(function(evt){
+			/*$('#scrollbox3').scroll(function(evt){
 				var $this = $(this);
 				var viewH = $this.height();   //可见高度
 				// var viewH1 = $this.get(0).clientHeight;
@@ -647,14 +670,7 @@
 				if(contentH - viewH - scrollTop <=100){
 					console.log("已经滚动距离底部100px位置...");
 				}
-			});
-
-
-
-			 
-
-
-
+			});*/
 
 			/***************************/
 		});

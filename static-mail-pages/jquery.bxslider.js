@@ -723,11 +723,6 @@
 			if (slider.settings.auto) el.stopAuto();
 			el.goToNextSlide();
 			e.preventDefault();
-
-			//ericky  让它连续自动播放 不能放在这里 要放在if语句中,否则外部的auto设置将会无效
-			// el.startAuto();
-			if (slider.settings.auto) el.startAuto();
-			//end erciky
 		}
 
 		/**
@@ -741,11 +736,6 @@
 			if (slider.settings.auto) el.stopAuto();
 			el.goToPrevSlide();
 			e.preventDefault();
-
-			//ericky  让它连续自动播放 不能放在这里 要放在if语句中,否则外部的auto设置将会无效
-			// el.startAuto();
-			if (slider.settings.auto) el.startAuto();
-			//end erciky
 		}
 
 		/**
@@ -787,11 +777,6 @@
 			if(pagerIndex != slider.active.index) el.goToSlide(pagerIndex);
 			// alert(123);
 			e.preventDefault();
-
-			//ericky  让它连续自动播放 不能放在这里 要放在if语句中,否则外部的auto设置将会无效
-			// el.startAuto();
-			if (slider.settings.auto) el.startAuto();
-			//end erciky
 		}
 
 		/**

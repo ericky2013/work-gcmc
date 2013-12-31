@@ -1005,3 +1005,44 @@ li.nav-products:hover .drop-menu{
 	background: url('../imgs/tab4_img.jpg');
 }
 
+/*2013-12-30*/
+/*修复增加产品删选按钮后,无current背景*/
+.filter-container .filter-item .filter-item-li-current {
+	background: url("../images/icons/filter-btn-current.png");
+}
+
+
+/*增加首页carousel 导航 button*/
+.index-bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+  margin-bottom: 300px;
+  position: absolute;
+  top: 333px;
+  left: 120px;
+  z-index: 10;
+}
+.index-bx-pager .bx-pager-item{
+  display: inline-block;
+}
+.index-bx-pager .bx-pager-item > a{
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.index-bx-pager .bx-pager-item > a.active{
+  background: #F90;
+}
+
+ 

@@ -8,6 +8,8 @@
 	<!--[if lt IE 9]>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 	<![endif]-->
+	<!-- 使用webkit 内核渲染 content的取值为webkit，ie-comp，ie-stand 之一，区分大小写，分别代表用极速模式，兼容模式，IE模式打开 http://se.360.cn/v6/help/meta.html -->
+	<meta name="renderer" content="webkit">
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 	<meta name="description" content="">
@@ -149,7 +151,35 @@
 					<li>
 						 <img src="images/carousels/1.png" alt="">
 						 <div class="rs-caption">
-						 		<h1>这里是文字介绍</h1>
+						 		<h1>这里是文字介绍2</h1>
+						 		<p>
+						 			这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍字介绍这里是文字介绍这里是文字字介绍这里是文字介绍这里是文字...  <a href="#"> <span class="glyphicon glyphicon-chevron-right"></span>  详细</a>
+						 		</p>
+							 	<div class="carousel-page float_right">
+							 		<a href="#" class="rs-prev">prev</a>
+								 	<a href="#" class="rs-next">next</a>
+								 	<span class="">2/5</span>
+							 	</div>
+						 </div>
+					</li>
+					<li>
+						 <img src="images/carousels/1.png" alt="">
+						 <div class="rs-caption">
+						 		<h1>这里是文字介绍3</h1>
+						 		<p>
+						 			这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍字介绍这里是文字介绍这里是文字字介绍这里是文字介绍这里是文字...  <a href="#"> <span class="glyphicon glyphicon-chevron-right"></span>  详细</a>
+						 		</p>
+							 	<div class="carousel-page float_right">
+							 		<a href="#" class="rs-prev">prev</a>
+								 	<a href="#" class="rs-next">next</a>
+								 	<span class="">2/5</span>
+							 	</div>
+						 </div>
+					</li>
+					<li>
+						 <img src="images/carousels/1.png" alt="">
+						 <div class="rs-caption">
+						 		<h1>这里是文字介绍4</h1>
 						 		<p>
 						 			这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍这里是文字介绍字介绍这里是文字介绍这里是文字字介绍这里是文字介绍这里是文字...  <a href="#"> <span class="glyphicon glyphicon-chevron-right"></span>  详细</a>
 						 		</p>
@@ -161,6 +191,24 @@
 						 </div>
 					</li>
 				</ul>
+
+				<!-- carousel nav button -->
+				<div class="index-bx-pager bx-default-pager">
+				    <div class="bx-pager-item">
+				        <a href="" data-slide-index="0" class="bx-pager-link active">1</a>
+				    </div>
+				    <div class="bx-pager-item">
+				        <a href="" data-slide-index="1" class="bx-pager-link">2</a>
+				    </div>
+				    <div class="bx-pager-item">
+				        <a href="" data-slide-index="2" class="bx-pager-link">3</a>
+				    </div>
+				    <div class="bx-pager-item">
+				        <a href="" data-slide-index="3" class="bx-pager-link">4</a>
+				    </div>
+				</div>
+				<!-- end  carousel nav button -->
+
 			</div>
 		</div>	<!-- end carousel -->
 		
@@ -549,7 +597,7 @@
 						<div class="play-lister">
 							<ul class="list-play-lister">
 								<li class="list-play-item">
-									<a href="#" data-video="1.mp4" data-vpic="http://localhost:8077/work/work/Z/demo-2/demo-2-2-1/videos/minimalist.jpg">    <!-- 注意这里不要写videos/1.mp4 因为已在js中设置了全局目录,只写视频文件名即可 -->
+									<a href="#" data-video="1.flv" data-vpic="http://localhost:8077/work/work/Z/demo-2/demo-2-2-1/videos/minimalist.jpg">    <!-- 注意这里不要写videos/1.mp4 因为已在js中设置了全局目录,只写视频文件名即可 -->
 										<p>彪悍老外用电磁炉给诺基亚Lumia 920充电！</p>
 										<span><img src="images/others/video-thumb-light.png" alt=""></span>
 									</a>

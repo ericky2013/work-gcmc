@@ -8,6 +8,8 @@
 	<!--[if lt IE 9]>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 	<![endif]-->
+	<!-- 使用webkit 内核渲染 content的取值为webkit，ie-comp，ie-stand之一，区分大小写，分别代表用极速模式，兼容模式，IE模式打开 -->
+	<meta name="renderer" content="webkit">
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 	<meta name="description" content="">
@@ -307,48 +309,48 @@
 	<script src='js/jQuery-flash.js'></script>
 	<script src="js/jquery.bxslider.js"></script>
 	<script src="js/enscroll-0.5.5.min.js"></script>
-	<!-- // <script src='js/myscript.js'></script> -->
+	<script src='js/myscript.js'></script>
 	<script>
 		$(document).ready(function(){
 
 			//nav-bar hover 效果
-			$('.nav-links').hover(function(){
-				// console.log($(this).closest("li"));
-				$(this).closest("li").addClass("borderNone");
-			},function(){
-				$(this).closest("li").removeClass("borderNone");
-			});
+			// $('.nav-links').hover(function(){
+			// 	// console.log($(this).closest("li"));
+			// 	$(this).closest("li").addClass("borderNone");
+			// },function(){
+			// 	$(this).closest("li").removeClass("borderNone");
+			// });
 
-			var currentTab = $('.list-content-li');
-			currentTab.on("click",function(evt){
-				evt.preventDefault();
-				evt.stopPropagation();
-				var $this = $(this);
-				/*var tabIndex = $this.closest("ul").children("li").index($this);
-				var breadcrumbs = $('.breadcrumb-link');*/
-				currentTab.removeClass("list-content-li-current");
-				$this.addClass("list-content-li-current");
-			})
+			// var currentTab = $('.list-content-li');
+			// currentTab.on("click",function(evt){
+			// 	evt.preventDefault();
+			// 	evt.stopPropagation();
+			// 	var $this = $(this);
+			// 	/*var tabIndex = $this.closest("ul").children("li").index($this);
+			// 	var breadcrumbs = $('.breadcrumb-link');*/
+			// 	currentTab.removeClass("list-content-li-current");
+			// 	$this.addClass("list-content-li-current");
+			// })
 
-			$('.bxslider').bxSlider({
-				 mode: 'fade',
-				 pagerCustom: '.bx-pager',
-				 nextSelector:"next",
-				 slideMargin:"50px"
-			});
+			// $('.bxslider').bxSlider({
+			// 	 mode: 'fade',
+			// 	 pagerCustom: '.bx-pager',
+			// 	 nextSelector:"next",
+			// 	 slideMargin:"50px"
+			// });
 
-			var bannerSlider = $('.banner-slider');
-			bannerSlider.children("li").removeClass("dis_none");
-			bannerSlider.bxSlider({
-				 mode: 'horizontal',
-				 captions: true
-			});
+			// var bannerSlider = $('.banner-slider');
+			// bannerSlider.children("li").removeClass("dis_none");
+			// bannerSlider.bxSlider({
+			// 	 mode: 'horizontal',
+			// 	 captions: true
+			// });
 
-			$('#scrollbox3').enscroll({
-			    showOnHover: false,
-			    verticalTrackClass: 'track3',
-			    verticalHandleClass: 'handle3'
-			});
+			// $('#scrollbox3').enscroll({
+			//     showOnHover: false,
+			//     verticalTrackClass: 'track3',
+			//     verticalHandleClass: 'handle3'
+			// });
 
 				
 		});
